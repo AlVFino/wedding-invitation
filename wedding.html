@@ -118,8 +118,8 @@
               <p>09.00 WIB - Selesai</p>
               <hr>
               <strong>Tempat Pernikahan</strong>
-                <span>RT 02/RW 05 Desa Sedeng, Kec. Kanor, Kab. Bojonegoro</span>
-              <a class="text-link" data-maps target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/xzNGc4wzfpahGoUY8?g_st=ac">Lihat Lokasi ↗</a>
+              <span>RT 02/RW 05 Desa Sedeng, Kec. Kanor, Kab. Bojonegoro</span>
+              <a class="text-link" data-maps target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/gaFsrSEYKVdghTXD6?g_st=ac">Lihat Lokasi ↗</a>
             </article>
             <article class="event-card reveal">
               <div class="event-icon">✦</div>
@@ -128,8 +128,8 @@
               <p>10.00 WIB - Selesai</p>
               <hr>
               <strong>Tempat Acara</strong>
-              <span>RT 01/RW 02 Desa Piyak, Kec. Kanor, Kab. Bojonegoro</span>
-              <a class="text-link" data-maps target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/xzNGc4wzfpahGoUY8?g_st=ac">Lihat Lokasi ↗</a>
+              <span>RT 02/RW 05 Desa Sedeng, Kec. Kanor, Kab. Bojonegoro</span>
+              <a class="text-link" data-maps target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/gaFsrSEYKVdghTXD6?g_st=ac">Lihat Lokasi ↗</a>
             </article>
           </div>
         </div>
@@ -142,7 +142,7 @@
             <h2>Sampai jumpa di sana.</h2>
             <p>Tempat dan waktu terbaik untuk merayakan awal perjalanan kami bersama orang-orang terkasih.</p>
           </div>
-          <a class="btn btn--outline" data-maps target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/xzNGc4wzfpahGoUY8?g_st=ac">Lihat Lokasi</a>
+          <a class="btn btn--outline" data-maps target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/gaFsrSEYKVdghTXD6?g_st=ac">Lihat Lokasi</a>
         </div>
       </section>
 
@@ -220,20 +220,59 @@
       </section>
 
       <section class="section gift-section section--cream" id="gift">
-        <div class="container gift-card reveal">
-          <p class="eyebrow">HADIAH PERNIKAHAN</p>
-          <h2>Kehadiran Anda adalah hadiah terindah.</h2>
-          <p>Doa dan kehadiran Anda adalah hadiah terindah bagi kami. Bagi yang ingin berbagi tanda kasih, dapat melalui:</p>
-          <div class="bank-card">
-            <div><span>BNI</span><strong id="rekeningNumber">390290612</strong><small>a.n Muhammad Ariyanto</small></div>
-            <button class="copy-btn" id="copyRekening" type="button" aria-label="Salin nomor rekening">BNI</button>
+          <div class="container gift-card reveal">
+
+              <p class="eyebrow">HADIAH PERNIKAHAN</p>
+
+              <h2>Kehadiran Anda adalah hadiah terindah.</h2>
+
+              <p>
+                  Doa dan kehadiran Anda adalah hadiah terindah bagi kami.
+                  Bagi yang ingin berbagi tanda kasih, dapat melalui:
+              </p>
+
+              <!-- BNI -->
+              <div class="bank-card">
+                  <div>
+                      <span>BNI</span>
+                      <strong id="rekeningBNI">1988489261</strong>
+                      <small>a.n Putri Novianti</small>
+                  </div>
+
+                  <button
+                      class="copy-btn"
+                      type="button"
+                      data-rekening="rekeningBNI"
+                      aria-label="Salin nomor rekening BNI">
+                      BNI
+                  </button>
+              </div>
+
+              <!-- Mandiri -->
+              <div class="bank-card">
+                  <div>
+                      <span>Mandiri</span>
+                      <strong id="rekeningMandiri">1780010692784</strong>
+                      <small>a.n Putri Novianti</small>
+                  </div>
+
+                  <button
+                      class="copy-btn"
+                      type="button"
+                      data-rekening="rekeningMandiri"
+                      aria-label="Salin nomor rekening Mandiri">
+                      MANDIRI
+                  </button>
+              </div>
+
+              <p
+                  class="copy-status"
+                  id="copyStatus"
+                  role="status"
+                  aria-live="polite">
+              </p>
+
           </div>
-          <div class="bank-card"> 
-            <div><span>BRI</span><strong id="rekeningNumber">221801011658504</strong><small>a.n Muhammad Ariyanto</small></div>
-            <button class="copy-btn" id="copyRekening" type="button" aria-label="Salin nomor rekening">BRI</button>
-          </div>
-          <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
-        </div>
       </section>
     </main>
 
