@@ -546,14 +546,40 @@ body.locked {
     width: 1px;
     background: rgba(216,195,165,.3);
 }
+/* ========================================
+   TIMELINE RESPONSIVE
+======================================== */
+
+/* DESKTOP */
+.timeline {
+    max-width: 850px;
+    margin: auto;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 115px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(216, 195, 165, 0.3);
+}
+
 .timeline-item {
     display: grid;
-    grid-template-columns: 170px 1fr;
+    grid-template-columns: 170px minmax(0, 1fr);
     gap: 35px;
     position: relative;
     padding: 0 0 52px;
 }
-.timeline-item:before {
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item::before {
     content: "";
     position: absolute;
     left: 111px;
@@ -563,22 +589,172 @@ body.locked {
     border: 1px solid var(--secondary);
     background: #352e28;
     border-radius: 50%;
+    z-index: 2;
 }
+
 .timeline-year {
     font: 500 32px/1 var(--serif);
     color: var(--secondary);
     text-align: right;
     padding-right: 25px;
 }
+
 .timeline-item h3 {
     font: 600 31px/1.1 var(--serif);
     margin: 0 0 8px;
+    color: #fff;
 }
+
 .timeline-item p {
     color: #c9c0b6;
     margin: 0;
     font-size: 12px;
+    line-height: 1.8;
 }
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 800px) {
+
+    .timeline {
+        width: 100%;
+        max-width: 650px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 100px minmax(0, 1fr);
+        gap: 25px;
+        padding-bottom: 42px;
+    }
+
+    .timeline::before {
+        left: 75px;
+    }
+
+    .timeline-item::before {
+        left: 71px;
+    }
+
+    .timeline-year {
+        font-size: 26px;
+        padding-right: 20px;
+    }
+
+    .timeline-item h3 {
+        font-size: 27px;
+    }
+
+    .timeline-item p {
+        font-size: 12px;
+        line-height: 1.75;
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 560px) {
+
+    .story-section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .timeline {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .timeline::before {
+        left: 72px;
+        top: 5px;
+        bottom: 5px;
+    }
+
+    .timeline-item {
+        display: grid;
+        grid-template-columns: 72px minmax(0, 1fr);
+        gap: 20px;
+        padding-bottom: 38px;
+        width: 100%;
+    }
+
+    .timeline-item::before {
+        left: 68px;
+        top: 4px;
+        width: 8px;
+        height: 8px;
+    }
+
+    .timeline-year {
+        font-size: 22px;
+        line-height: 1;
+        text-align: right;
+        padding-right: 14px;
+        white-space: nowrap;
+    }
+
+    .timeline-item h3 {
+        font-size: 23px;
+        line-height: 1.15;
+        margin: 0 0 8px;
+        word-break: normal;
+    }
+
+    .timeline-item p {
+        font-size: 12px;
+        line-height: 1.75;
+        margin: 0;
+        overflow-wrap: break-word;
+    }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+
+    .story-section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .timeline::before {
+        left: 62px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 62px minmax(0, 1fr);
+        gap: 17px;
+    }
+
+    .timeline-item::before {
+        left: 58px;
+    }
+
+    .timeline-year {
+        font-size: 19px;
+        padding-right: 12px;
+    }
+
+    .timeline-item h3 {
+        font-size: 21px;
+    }
+
+    .timeline-item p {
+        font-size: 11px;
+        line-height: 1.7;
+    }
+}
+
 .rsvp-section {
     background: var(--bg);
 }
