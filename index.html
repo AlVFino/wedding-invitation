@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8B6F47">
+  <meta name="description" content="Undangan pernikahan Ariyanto & Putri — Rabu, 23 September 2026.">
+  <title>Ariyanto & Putri — Undangan Pernikahan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="preloader" id="preloader" aria-hidden="true"><span class="preloader-ring"></span></div>
+
+  <div class="opening" id="opening">
+    <div class="opening__overlay"></div>
+    <div class="opening__petals" aria-hidden="true"></div>
+    <div class="opening__content">
+      <p class="eyebrow">UNDANGAN PERNIKAHAN</p>
+      <h1><span id="openingGroom">Muhammad Ariyanto</span> <i>&</i> <span id="openingBride">Putri Novianti</span></h1>
+      <div class="flourish" aria-hidden="true">❦</div>
+      <p class="opening__guest">Kepada Yth.<br><strong id="guestName">Tamu Undangan</strong></p>
+      <button class="btn btn--primary opening__button" id="openInvitation" type="button">
+        <span>Buka Undangan</span><span aria-hidden="true">♡</span>
+      </button>
+      <p class="opening__hint">Silakan buka undangan untuk melihat detail acara</p>
+    </div>
+  </div>
+
+  <div class="site" id="site" aria-hidden="true">
+    <nav class="navbar" id="navbar" aria-label="Navigasi utama">
+      <a class="brand" href="#home" aria-label="Ariyanto dan Putri">A<span>&</span>P</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Beranda</a>
+        <a href="#couple" class="nav-link">Mempelai</a>
+        <a href="#event" class="nav-link">Acara</a>
+        <a href="#story" class="nav-link">Kisah</a>
+        <a href="#rsvp" class="nav-link">Konfirmasi</a>
+      </div>
+      <button class="icon-button menu-toggle" id="menuToggle" type="button" aria-label="Buka menu" aria-expanded="false">☰</button>
+    </nav>
+
+    <main>
+      <section class="hero section" id="home">
+        <div class="hero__media"></div>
+        <div class="hero__overlay"></div>
+        <div class="hero__glow" aria-hidden="true"></div>
+        <div class="hero__content reveal">
+          <p class="eyebrow light">UNDANGAN PERNIKAHAN</p>
+          <h2><span data-groom>Ariyanto</span> <i>&</i> <span data-bride>Putri</span></h2>
+          <p class="hero__date">Rabu, 23 September 2026</p>
+          <a class="scroll-cue" href="#couple" aria-label="Gulir ke bagian mempelai"><span></span></a>
+        </div>
+      </section>
+
+      <section class="section section--paper" id="couple">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">MEMPELAI</p>
+            <h2>Dua hati, satu perjalanan indah.</h2>
+            <span class="heading-line">♡</span>
+          </div>
+          <div class="couple-grid">
+            <article class="person-card reveal">
+              <div class="portrait portrait--groom"><img src="assets/images/groom.jpg" alt="Foto Ariyanto" loading="lazy"></div>
+              <p class="person-role">MEMPELAI PRIA</p>
+              <h3 data-groom>Muhammad Ariyanto</h3>
+              <p>Putra dari<br><strong>Bapak Sumarsid & Ibu Siti Mariyam</strong></p>
+            </article>
+            <div class="ampersand reveal" aria-hidden="true">&</div>
+            <article class="person-card reveal">
+              <div class="portrait portrait--bride"><img src="assets/images/bride.jpg" alt="Foto Putri" loading="lazy"></div>
+              <p class="person-role">MEMPELAI WANITA</p>
+              <h3 data-bride>Putri Novianti</h3>
+              <p>Putri dari<br><strong>Bapak Karno & Ibu Siti Aminah</strong></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="quote section">
+        <div class="container quote__inner reveal">
+          <span class="quote__mark">“</span>
+          <blockquote>Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri supaya kamu mendapatkan ketenangan hati dan dijadikan-Nya kasih sayang di antara kamu.</blockquote>
+          <cite>QS. Ar-Rum: 21</cite>
+        </div>
+      </section>
+
+      <section class="section section--paper" id="countdown">
+        <div class="container countdown-wrap reveal">
+          <div class="section-heading section-heading--compact">
+            <p class="eyebrow">HITUNG MUNDUR</p>
+            <h2>Menuju hari yang dinantikan</h2>
+          </div>
+          <div class="countdown" id="countdownTimer" aria-label="Hitung mundur pernikahan">
+            <div class="count-box"><strong data-unit="days">00</strong><span>Hari</span></div>
+            <div class="count-box"><strong data-unit="hours">00</strong><span>Jam</span></div>
+            <div class="count-box"><strong data-unit="minutes">00</strong><span>Menit</span></div>
+            <div class="count-box"><strong data-unit="seconds">00</strong><span>Detik</span></div>
+          </div>
+          <p class="countdown-done" id="countdownDone" hidden>Hari yang dinantikan telah tiba ❤️</p>
+        </div>
+      </section>
+
+      <section class="section section--cream" id="event">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">CATAT TANGGALNYA</p>
+            <h2>Rangkaian Acara Pernikahan</h2>
+          </div>
+          <div class="event-grid">
+            <article class="event-card reveal">
+              <div class="event-icon">♡</div>
+              <p class="person-role">AKAD NIKAH</p>
+              <h3>Rabu, 23 September 2026</h3>
+              <p>09.00 WIB - Selesai</p>
+              <hr>
+              <strong>Tempat Pernikahan</strong>
+              <span>RT 02/RW 05 Desa Sedeng, Kec. Kanor, Kab. Bojonegoro</span>
+              <a class="text-link" data-maps target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/gaFsrSEYKVdghTXD6?g_st=ac">Lihat Lokasi ↗</a>
+            </article>
+            <article class="event-card reveal">
+              <div class="event-icon">✦</div>
+              <p class="person-role">ACARA</p>
+              <h3>Rabu, 23 September 2026</h3>
+              <p>10.00 WIB - Selesai</p>
+              <hr>
+              <strong>Tempat Acara</strong>
+              <span>RT 02/RW 05 Desa Sedeng, Kec. Kanor, Kab. Bojonegoro</span>
+              <a class="text-link" data-maps target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/gaFsrSEYKVdghTXD6?g_st=ac">Lihat Lokasi ↗</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section location section--paper">
+        <div class="container location__inner reveal">
+          <div>
+            <p class="eyebrow">TEMPAT & WAKTU</p>
+            <h2>Sampai jumpa di sana.</h2>
+            <p>Tempat dan waktu terbaik untuk merayakan awal perjalanan kami bersama orang-orang terkasih.</p>
+          </div>
+          <a class="btn btn--outline" data-maps target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/gaFsrSEYKVdghTXD6?g_st=ac">Lihat Lokasi</a>
+        </div>
+      </section>
+
+      <section class="section story-section" id="story">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">KISAH CINTA KAMI</p>
+            <h2>Langkah kecil, kenangan selamanya.</h2>
+          </div>
+          <div class="timeline">
+            <article class="timeline-item reveal"><span class="timeline-year">2021</span><div><h3>Pertemuan Pertama</h3><p>Semesta mempertemukan dua orang yang belum tahu bahwa satu sama lain akan menjadi bagian terindah dari cerita hidupnya.</p></div></article>
+            <article class="timeline-item reveal"><span class="timeline-year">2022</span><div><h3>Kencan Pertama</h3><p>Dari percakapan sederhana, tumbuh rasa nyaman yang perlahan berubah menjadi cerita yang lebih berarti.</p></div></article>
+            <article class="timeline-item reveal"><span class="timeline-year">2024</span><div><h3>Kami Memutuskan</h3><p>Memilih untuk berjalan bersama, belajar tentang cinta, komitmen, dan arti pulang.</p></div></article>
+            <article class="timeline-item reveal"><span class="timeline-year">2026</span><div><h3>Hari Pernikahan</h3><p>Hari ketika sebuah janji dirayakan dan dua perjalanan dipertemukan menjadi satu.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section rsvp-section" id="rsvp">
+        <div class="container rsvp-grid">
+          <div class="section-heading section-heading--left reveal">
+            <p class="eyebrow">UCAPAN</p>
+            <h2>Jadilah bagian dari hari istimewa kami.</h2>
+            <p>tinggalkan ucapan terbaik untuk Ariyanto & Putri.</p>
+          </div>
+          <form class="form-card reveal" id="rsvpForm">
+            <label>Nama<input name="name" type="text" placeholder="Nama kamu" required maxlength="80"></label>
+            <label>Ucapan<textarea name="message" rows="4" placeholder="Tuliskan ucapan terbaikmu..." maxlength="300"></textarea></label>
+            <button class="btn btn--primary" type="submit">Kirim Ucapan ♡</button>
+            <p class="form-note">Data ucapan disimpan sementara di browser perangkat ini.</p>
+          </form>
+        </div>
+        <div class="container wishes-wrap">
+          <div class="wishes-heading reveal"><p class="eyebrow">UCAPAN DARI TAMU</p><h2>Doa & Ucapan</h2></div>
+          <div class="wishes-grid" id="wishesList"></div>
+        </div>
+      </section>
+
+      <section class="section gift-section section--cream" id="gift">
+        <div class="container gift-card reveal">
+          <p class="eyebrow">HADIAH PERNIKAHAN</p>
+          <h2>Kehadiran Anda adalah hadiah terindah.</h2>
+          <p>Doa dan kehadiran Anda adalah hadiah terindah bagi kami. Bagi yang ingin berbagi tanda kasih, dapat melalui:</p>
+          <div class="bank-card">
+            <div><span>BNI</span><strong id="rekeningNumber">1988489261</strong><small>a.n Putri Novianti</small></div>
+            <button class="copy-btn" id="copyRekening" type="button" aria-label="Salin nomor rekening">Salin</button>
+          </div>
+          <div class="bank-card"> 
+            <div><span>Mandiri</span><strong id="rekeningNumber">1780010692784</strong><small>a.n Putri Novianti</small></div>
+            <button class="copy-btn" id="copyRekening" type="button" aria-label="Salin nomor rekening">Salin</button>
+          </div>
+          <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__ornament">❦</div>
+      <p>Dengan penuh cinta,</p>
+      <h2><span data-groom>Ariyanto</span> <i>&</i> <span data-bride>Putri</span></h2>
+      <p class="footer__small">Rabu, 23 September 2026</p>
+    </footer>
+
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Putar musik" aria-pressed="false"><span>♫</span></button>
+    <audio id="weddingAudio" loop preload="none">
+      <source src="assets/audio/wedding-song.mp3" type="audio/mpeg">
+    </audio>
+    <button class="back-top" id="backTop" type="button" aria-label="Kembali ke atas">↑</button>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
