@@ -197,8 +197,8 @@
 
 
 const weddingData = {
-  groom: "Ariyanto",
-  bride: "Putri",
+  groom: "Muhammad Ariyanto",
+  bride: "Putri Novianti",
   date: "23 September 2026",
   countdownDate: "2026-09-23T08:00:00+07:00",
   location: "Tempat Pernikahan",
