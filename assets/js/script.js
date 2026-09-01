@@ -1,3 +1,201 @@
+  // =========================
+  // SUPABASE CONFIG
+  // =========================
+
+  const SUPABASE_URL = 'https://pvbwweoegkcxgsxkqqvs.supabase.co';
+
+  const SUPABASE_KEY = 'sb_publishable_ZulliytFbH5g_D_zyR_Sag_tFdzwkMJ';
+
+  const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+
+  // =========================
+  // LOAD COMMENTS
+  // =========================
+
+  async function loadComments() {
+
+    const container = document.getElementById('wishesList');
+
+    if (!container) return;
+
+    container.innerHTML = `
+      <p class="loading-wishes">Memuat ucapan...</p>
+    `;
+
+    const { data, error } = await supabaseClient
+      .from('comments')
+      .select('id, name, description, created_at')
+      .order('created_at', { ascending: false })
+      .limit(50);
+
+    if (error) {
+      console.error('Gagal mengambil ucapan:', error);
+
+      container.innerHTML = `
+        <p class="loading-wishes">
+          Ucapan belum dapat dimuat.
+        </p>
+      `;
+
+      return;
+    }
+
+    if (!data || data.length === 0) {
+      container.innerHTML = `
+        <p class="loading-wishes">
+          Belum ada ucapan. Jadilah yang pertama memberikan ucapan ♡
+        </p>
+      `;
+
+      return;
+    }
+
+    container.innerHTML = data.map(comment => {
+
+        const nama = escapeHTML(comment.name);
+        const deskripsi = escapeHTML(comment.description);
+
+        const date = new Date(comment.created_at);
+
+        const tanggal = date.toLocaleDateString('id-ID', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+
+        const initial = nama
+            ? nama.charAt(0).toUpperCase()
+            : '?';
+
+        return `
+            <article class="wish-card">
+
+                <div
+                    class="wish-card__header"
+                    data-initial="${initial}"
+                >
+                    <div>
+                        <h4>${nama}</h4>
+                        <span>${tanggal}</span>
+                    </div>
+                </div>
+
+                <p>${deskripsi}</p>
+
+            </article>
+        `;
+
+    }).join('');
+  }
+
+
+  // =========================
+  // SUBMIT COMMENT
+  // =========================
+
+  const rsvpForm = document.getElementById('rsvpForm');
+
+  if (rsvpForm) {
+
+    rsvpForm.addEventListener('submit', async function (event) {
+
+      event.preventDefault();
+
+      const form = event.target;
+
+      const nameInput = form.elements['name'];
+      const messageInput = form.elements['message'];
+
+      const name = nameInput.value.trim();
+      const description = messageInput.value.trim();
+
+      const button = document.getElementById('submitWish');
+      const formNote = document.getElementById('formNote');
+
+      // Validasi
+      if (!name || !description) {
+        formNote.textContent = 'name dan ucapan wajib diisi.';
+        return;
+      }
+
+      // Loading
+      button.disabled = true;
+      button.textContent = 'Mengirim...';
+      formNote.textContent = 'Sedang mengirim ucapan...';
+
+      try {
+
+        const { error } = await supabaseClient
+          .from('comments')
+          .insert([
+            {
+              name: name,
+              description: description
+            }
+          ]);
+
+        if (error) {
+          console.error('Gagal menyimpan ucapan:', error);
+
+          formNote.textContent =
+            'Maaf, ucapan gagal dikirim. Silakan coba lagi.';
+
+          return;
+        }
+
+        // Berhasil
+        form.reset();
+
+        formNote.textContent =
+          'Ucapan berhasil dikirim. Terima kasih ♡';
+
+        // Reload ucapan
+        await loadComments();
+
+      } catch (error) {
+
+        console.error(error);
+
+        formNote.textContent =
+          'Terjadi kesalahan. Silakan coba lagi.';
+
+      } finally {
+
+        button.disabled = false;
+        button.textContent = 'Kirim Ucapan ♡';
+
+      }
+
+    });
+  }
+
+
+  // =========================
+  // SECURITY
+  // =========================
+
+  function escapeHTML(text) {
+
+    const div = document.createElement('div');
+
+    div.textContent = text ?? '';
+
+    return div.innerHTML;
+  }
+
+
+  // =========================
+  // INITIAL LOAD
+  // =========================
+
+  loadComments();
+
+
+
 const weddingData = {
   groom: "Ariyanto",
   bride: "Putri",
@@ -113,14 +311,59 @@ function initRsvp() {
 
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#039;",'"':"&quot;"}[char])); }
 function initCopy() {
-  $("#copyRekening").addEventListener("click", async () => {
-    const value = $("#rekeningNumber").textContent.trim();
-    try { await navigator.clipboard.writeText(value); }
-    catch { const area = document.createElement("textarea"); area.value = value; document.body.appendChild(area); area.select(); document.execCommand("copy"); area.remove(); }
-    $("#copyStatus").textContent = "Nomor rekening berhasil disalin ❤️"; toast("Nomor rekening berhasil disalin ❤️");
-  });
-}
+    const buttons = document.querySelectorAll(".copy-btn");
+    const copyStatus = document.getElementById("copyStatus");
 
+    buttons.forEach((button) => {
+        button.addEventListener("click", async () => {
+
+            const rekeningId = button.dataset.rekening;
+            const rekeningElement = document.getElementById(rekeningId);
+
+            if (!rekeningElement) {
+                console.error("Nomor rekening tidak ditemukan.");
+                return;
+            }
+
+            const value = rekeningElement.textContent.trim();
+
+            try {
+                await navigator.clipboard.writeText(value);
+            } catch (error) {
+
+                const area = document.createElement("textarea");
+
+                area.value = value;
+                area.style.position = "fixed";
+                area.style.opacity = "0";
+
+                document.body.appendChild(area);
+
+                area.focus();
+                area.select();
+
+                document.execCommand("copy");
+
+                area.remove();
+            }
+
+            copyStatus.textContent = "Nomor rekening berhasil disalin ❤️";
+
+            if (typeof toast === "function") {
+                toast("Nomor rekening berhasil disalin ❤️");
+            }
+
+            // Ubah teks tombol sementara
+            const originalText = button.textContent;
+
+            button.textContent = "Tersalin ✓";
+
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        });
+    });
+}
 function initBackTop() { const btn = $("#backTop"); window.addEventListener("scroll", () => btn.classList.toggle("is-visible", window.scrollY > 600), { passive: true }); btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" })); }
 function toast(message) { const el = $("#toast"); el.textContent = message; el.classList.add("show"); clearTimeout(window.toastTimer); window.toastTimer = setTimeout(() => el.classList.remove("show"), 2500); }
 
