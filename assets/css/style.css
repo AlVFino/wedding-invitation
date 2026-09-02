@@ -1038,7 +1038,7 @@ body.locked {
 }
 .bank-card strong {
     display: block;
-    font: 600 30px/1.25 var(--sans);
+    font: 600 30px/1.25 var(--serif);
     letter-spacing: 0.03em;
 }
 .copy-btn {
