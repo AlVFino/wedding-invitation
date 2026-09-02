@@ -311,43 +311,87 @@ function initRsvp() {
 
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#039;",'"':"&quot;"}[char])); }
 // =========================
-// COPY NOMOR REKENING
+// COPY REKENING
 // =========================
 
-var copyButtons = document.querySelectorAll(".copy-btn");
+document.addEventListener("click", function (event) {
 
-for (var i = 0; i < copyButtons.length; i++) {
+    var button = event.target.closest(".copy-btn");
 
-    copyButtons[i].addEventListener("click", function () {
+    if (!button) {
+        return;
+    }
 
-        var rekeningId = this.getAttribute("data-rekening");
-        var rekeningElement = document.getElementById(rekeningId);
-        var status = document.getElementById("copyStatus");
+    var rekeningId = button.getAttribute("data-rekening");
+    var rekeningElement = document.getElementById(rekeningId);
+    var status = document.getElementById("copyStatus");
 
-        if (!rekeningElement || !status) {
-            return;
-        }
+    if (!rekeningElement) {
+        console.log("Rekening tidak ditemukan:", rekeningId);
+        return;
+    }
 
-        var nomorRekening = rekeningElement.textContent.trim();
+    var nomorRekening = rekeningElement.textContent.trim();
 
-        var input = document.createElement("input");
-        input.value = nomorRekening;
+    // Buat textarea sementara
+    var textarea = document.createElement("textarea");
 
-        document.body.appendChild(input);
-        input.select();
-        input.setSelectionRange(0, 99999);
+    textarea.value = nomorRekening;
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    textarea.style.top = "0";
 
-        document.execCommand("copy");
+    document.body.appendChild(textarea);
 
-        document.body.removeChild(input);
+    textarea.focus();
+    textarea.select();
+
+    var berhasil = false;
+
+    try {
+        berhasil = document.execCommand("copy");
+    } catch (error) {
+        berhasil = false;
+        console.log(error);
+    }
+
+    document.body.removeChild(textarea);
+
+    if (berhasil) {
 
         status.textContent = "Nomor rekening berhasil disalin ✓";
 
+        var teksAwal = button.textContent;
+        button.textContent = "Tersalin ✓";
+
+        setTimeout(function () {
+            button.textContent = teksAwal;
+        }, 2000);
+
         setTimeout(function () {
             status.textContent = "";
-        }, 2000);
-    });
-}
+        }, 3000);
+
+    } else {
+
+        // Kalau browser menolak copy otomatis,
+        // nomor rekening tetap dipilih agar user tinggal Ctrl + C
+        var backup = document.createElement("textarea");
+
+        backup.value = nomorRekening;
+        backup.style.position = "fixed";
+        backup.style.left = "-9999px";
+
+        document.body.appendChild(backup);
+
+        backup.focus();
+        backup.select();
+
+        alert("Nomor rekening sudah dipilih. Tekan Ctrl + C untuk menyalin.");
+
+        document.body.removeChild(backup);
+    }
+});
 function initBackTop() { const btn = $("#backTop"); window.addEventListener("scroll", () => btn.classList.toggle("is-visible", window.scrollY > 600), { passive: true }); btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" })); }
 function toast(message) { const el = $("#toast"); el.textContent = message; el.classList.add("show"); clearTimeout(window.toastTimer); window.toastTimer = setTimeout(() => el.classList.remove("show"), 2500); }
 
