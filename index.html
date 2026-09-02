@@ -124,8 +124,8 @@
             <article class="event-card reveal">
               <div class="event-icon">✦</div>
               <p class="person-role">ACARA</p>
-              <h3>Rabu, 25 September 2026</h3>
-              <p>09.00 WIB - Selesai</p>
+              <h3>Jumat, 25 September 2026</h3>
+              <p>10.00 WIB - Selesai</p>
               <hr>
               <strong>Tempat Acara</strong>
               <span>RT 01/RW 02 Desa Piyak, Kec. Kanor, Kab. Bojonegoro</span>
@@ -223,18 +223,49 @@
         <div class="container gift-card reveal">
           <p class="eyebrow">HADIAH PERNIKAHAN</p>
           <h2>Kehadiran Anda adalah hadiah terindah.</h2>
-          <p>Doa dan kehadiran Anda adalah hadiah terindah bagi kami. Bagi yang ingin berbagi tanda kasih, dapat melalui:</p>
+          <p>
+            Doa dan kehadiran Anda adalah hadiah terindah bagi kami.
+            Bagi yang ingin berbagi tanda kasih, dapat melalui:
+          </p>
+
           <div class="bank-card">
-            <div><span>BNI</span><strong id="rekeningNumber">390290612</strong><small>a.n Muhammad Ariyanto</small></div>
-            <button class="copy-btn" id="copyRekening" type="button" aria-label="Salin nomor rekening">BNI</button>
+            <div>
+              <span>BNI</span>
+              <strong class="rekening-number">390290612</strong>
+              <small>a.n Muhammad Ariyanto</small>
+            </div>
+
+            <button
+              class="copy-btn"
+              type="button"
+              data-rekening="390290612"
+              aria-label="Salin nomor rekening BNI"
+            >
+              Salin
+            </button>
           </div>
-          <div class="bank-card"> 
-            <div><span>BRI</span><strong id="rekeningNumber">221801011658504</strong><small>a.n Muhammad Ariyanto</small></div>
-            <button class="copy-btn" id="copyRekening" type="button" aria-label="Salin nomor rekening">BRI</button>
+
+          <div class="bank-card">
+            <div>
+              <span>BRI</span>
+              <strong class="rekening-number">221801011658504</strong>
+              <small>a.n Muhammad Ariyanto</small>
+            </div>
+
+            <button
+              class="copy-btn"
+              type="button"
+              data-rekening="221801011658504"
+              aria-label="Salin nomor rekening BRI"
+            >
+              Salin
+            </button>
           </div>
+
           <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
         </div>
       </section>
+
     </main>
 
     <footer class="footer">
